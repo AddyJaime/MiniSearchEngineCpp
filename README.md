@@ -71,3 +71,22 @@ Once the project is compiled, run the executable using the following command:
 
 ./search_engine
 ```
+
+## Git
+
+This repository includes a `.gitignore` that excludes binaries and temporary files (for example, `app`).
+
+Basic Git commands to get started (if you haven't already):
+
+```bash
+git init
+git add .
+git commit -m "Initial commit: add README and .gitignore"
+```
+
+## Notes
+
+- The `.gitignore` already contains common entries (binaries, editor/IDE files, local config, and secrets).
+- If you'd like, I can add a build file (Makefile / CMake) or more detailed instructions—just tell me which you prefer.
+
+Enjoy coding! ✅
