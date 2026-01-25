@@ -71,8 +71,6 @@ results.push_back({"OpenAI", "https://www.openai.com", "An AI research organizat
 results.push_back({"MDN Web Docs", "https://developer.mozilla.org", "Official documentation and learning resources for web developers."});
 
 bool  is_loop_active = true;
-bool is_result_not_found = false;
-
 
 while (is_loop_active)
 {
@@ -95,35 +93,37 @@ while (is_loop_active)
   
     }   
   }
-  
-    
+
+  bool is_result_found = false;
+
     for (int i = 0; i < results.size(); i++)
     {
-// find() busca el texto dentro del título.
-// Si lo encuentra, devuelve la posición donde empieza.
-// Si NO lo encuentra, devuelve string::npos (significa: "no encontrado").
-// Esta comparación devuelve true solo si el texto apareció.
-    bool matchTitle = results[i].title.find(query) != string::npos;
-    bool matchDescription = results[i].description.find(query) != string::npos;
-
-    if (matchTitle || matchDescription)
-    {
+      // find() busca el texto dentro del título.
+      // Si lo encuentra, devuelve la posición donde empieza.
+      // Si NO lo encuentra, devuelve string::npos (significa: "no encontrado").
+      // Esta comparación devuelve true solo si el texto apareció.
+      bool matchTitle = results[i].title.find(query) != string::npos;
+      bool matchDescription = results[i].description.find(query) != string::npos;
+      
+      if (matchTitle || matchDescription)
+     {
       cout << results[i].title << endl;
       cout << endl;
       cout <<  results[i].description << endl;
+      is_result_found = true;
      cout << endl;
     }
     
+  }
+  
+  if (!is_result_found)
+  {
+    cout << "Result not found \n";
 
-    }
-    
+  }
   };
 
 
-  if (!is_result_not_found)
-  {
-    cout << "Result not found" << endl;
-  }
   
 
 return 0;
