@@ -15,6 +15,7 @@ cout << "🔍 Type a word to Search: ";
 
   string query;
   getline(cin, query);
+  cout << endl;
   return query;
 }
 
@@ -77,18 +78,24 @@ while (is_loop_active)
 {
   string query = getSearchQuery();
 
+  if (query == "help")
+  {
+    userWantsToGoToHelp(); 
+    
+  }
 
-
-
-
-  userWantsToGoToHelp(); 
+  if (query == "exit")
+  {
+    
     // si userWantsToExit devuelve true sal del programa 
     if (userWantsToExit(query))
     {
       cout << "👋🏻 Exiting Search Engine Mini... \n";
       is_loop_active = false;   
-
+  
     }   
+  }
+  
     
     for (int i = 0; i < results.size(); i++)
     {
@@ -102,18 +109,21 @@ while (is_loop_active)
     if (matchTitle || matchDescription)
     {
       cout << results[i].title << endl;
-      cout << results[i].description << endl;
+      cout << endl;
+      cout <<  results[i].description << endl;
+     cout << endl;
     }
     
 
-    }
-
-    if (!is_result_not_found)
-    {
-      cout << "Result not found" << endl;
     }
     
   };
+
+
+  if (!is_result_not_found)
+  {
+    cout << "Result not found" << endl;
+  }
   
 
 return 0;
